@@ -3,11 +3,12 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-"""Agregar un titulo y un encabezado"""
+#"""Agregar un titulo y un encabezado"""
 
-st.header(f'<span clas="big-font">Automobile Data Analysis </span>') 
-
+st.header('Automobile Data Analysis') 
+st.write('Aqui debe verse una explicacion pequeña del tema')
 st.header('Segundo encabezado sobre los coches') 
+st.subheader('Subencabezado sobre los coches')
 
 
 #cargar datos / Load data
