@@ -4,17 +4,7 @@ import streamlit as st
 import plotly.express as px
 
 
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background: linear-gradient(to right, #1e3c72, #2a5298);
-        color: white;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
 
 st.title("Bienvenido a mi app con fondo personalizado")
 st.write("¡El fondo ahora tiene un degradado azul oscuro!")
@@ -55,10 +45,11 @@ if hist_button: # clic en el botón
      st.plotly_chart(fig, use_container_width=True)
 
 #Boton para una segunda grafica de barras:
-st.write('Construir un gráfico de barras para la columna color:')
-bar_button = st.button('Construir gráfico de barras')
 
 df_colorcar = df_car.groupby('paint_color').size()
+
+st.write('Construir un gráfico de barras para la columna color:')
+bar_button = st.button('Construir gráfico de barras')
 
 if bar_button:
      color_fig = px.bar(df_colorcar,
@@ -67,7 +58,7 @@ if bar_button:
                     labels={'x': 'Color', 'y': 'Count'}, 
                     title='Count of Cars by Color')
      color_fig.update_traces(marker_color="#471fb4") #color morado
-     color_fig.show()
+     st.plotly_chart(color_fig, use_container_width=True)
 
 #Crear una casilla de verificación
 
@@ -77,7 +68,7 @@ if build_scatter: # si la casilla de verificación está seleccionada
      st.write('Construir un histograma para la columna odómetro:')
 
      fig_scatter = px.scatter(df_car, x="odometer", y="price") # crear un gráfico de dispersión
-     fig_scatter.show() 
+     st.plotly_chart(fig_scatter, use_container_width=True)
 
 
 color_scatter = st.checkbox('Construir gráfico de dispersión con el precio y los dias listados')
@@ -89,4 +80,4 @@ if color_scatter: # si la casilla de verificación está seleccionada
                         labels={'days_listed': 'Days Listed', 'price': 'Price'},
                         title='Price vs Days Listed') 
      days_scatter.update_traces(marker_color="#ee1d1d") 
-     days_scatter.show() 
+     st.plotly_chart(days_scatter, use_container_width=True)
