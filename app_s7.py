@@ -5,7 +5,7 @@ import plotly.express as px
 
 
 
-st.header(f'<span clas="big-font">Automobile Data Analysis </span>', unsafe_allow_html=True) # encabezado con HTML
+st.header(f'<span clas="big-font">Automobile Data Analysis </span>') 
 
 st.markdown(""" <style>
           .big-font {font-size:50px !important;
