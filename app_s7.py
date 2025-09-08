@@ -3,18 +3,11 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-
+"""Agregar un titulo y un encabezado"""
 
 st.header(f'<span clas="big-font">Automobile Data Analysis </span>') 
 
-st.markdown(""" <style>
-          .big-font {font-size:50px !important;
-          }
-          <style>
-          """, unsafe_allow_html=True) # definir una clase CSS
-
-
-st.markdown('<h2> Segundo encabezado sobre los coches </h2>', unsafe_allow_html=True) # encabezado con HTML
+st.header('Segundo encabezado sobre los coches') 
 
 
 #cargar datos / Load data
