@@ -3,31 +3,35 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-
-
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background: linear-gradient(to right, #1e3c72, #2a5298);
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 st.title("Bienvenido a mi app con fondo personalizado")
 st.write("¡El fondo ahora tiene un degradado azul oscuro!")
-
-
-
-st.header('demostracion de los conociemientos acerca de uso de desarollo de sofware para realizar paginas web')
-st.write('Esta paguna web solo muestra graficas sobre el conjunto de datos de automoviles')
 
 #"""Agregar un titulo y un encabezado"""
 
 st.header('Automobile Data Analysis') 
 st.write('Los datos de los vehiculos aqui mostrados son obtenidos de la pagina web https://www.kaggle.com/datasets/austinreese/craigslist-carstrucks-data?resource=download')
 st.header('Segundo encabezado sobre los coches') 
-st.subheader('Se muestran gracias combinando columnas del dataset, no hay una analisis riguroso al cual se quiera llegar o demostrar aqui')
+st.subheader('Solo se muestran las combinaciones de algunas columnas del dataset, no hay una analisis riguroso al cual se quiera llegar o demostrar')
 
 
 #cargar datos / Load data
 
 df_car = pd.read_csv('vehicles_us.csv') 
 
-df_car = df_car.dropna(subset=['price', 'odometer']) # Si no hay valores en 'price' y 'odometer' no nos sirven para el analisis
-
+df_car = df_car.dropna(subset=['price', 'odometer']) # Si no hay valores en 'price' y 'odometer' no nos sirven para el analisis acerca de los precios
+##No hay filas completamente duplicadas
 
 #Boton para hacer un histograma
 
